@@ -1,4 +1,4 @@
-# The Internet's Secret Room
+ The Internet's Secret Room
 
 A responsive, analog-horror inspired browser escape-room game built with Flask, SQLite, HTML, CSS, and vanilla JavaScript.
 
@@ -20,12 +20,12 @@ A responsive, analog-horror inspired browser escape-room game built with Flask, 
 
  Run locally (Windows PowerShell)
 
-```powershell
+powershell
 py -m venv .venv
 .\.venv\Scripts\Activate.ps1
 python -m pip install -r requirements.txt
 python app.py
-```
+
 
  Run locally (macOS/Linux)
 
@@ -35,7 +35,7 @@ source .venv/bin/activate
 python -m pip install -r requirements.txt
 python app.py
 
-## Puzzle answers (spoilers)
+ Puzzle answers (spoilers)
 
 1. LOOKCLOSER
 2. HELLO
