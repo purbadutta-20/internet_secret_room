@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080d0d">
+  <meta name="description" content="An analog-horror inspired browser escape room. Find the clues. Unlock the rooms.">
+  <title>The Internet's Secret Room</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <div class="scanlines" aria-hidden="true"></div>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="The Internet's Secret Room home"><span class="brand-mark">▣</span> SIGNAL_03:17</a>
+    <div class="top-meta"><span class="live-dot"></span> ARCHIVE CONNECTION: UNSTABLE</div>
+  </header>
+
+  <main class="shell">
+    <section class="hero panel">
+      <div class="hero-copy">
+        <p class="eyebrow">UNKNOWN SOURCE // FILE 001</p>
+        <h1>THE INTERNET'S<br><span>SECRET ROOM</span></h1>
+        <p class="hero-intro">Someone left the signal running. Five locked rooms. A trail of corrupted clues. One way out.</p>
+        <button id="beginBtn" class="btn btn-primary">ENTER THE SIGNAL <span>↘</span></button>
+        <p class="microcopy">HEADPHONES OPTIONAL. CURIOSITY REQUIRED.</p>
+      </div>
+      <div class="monitor" aria-hidden="true">
+        <div class="monitor-top"><span>MONITOR 04</span><span class="red-dot"></span></div>
+        <div class="monitor-screen">
+          <p class="terminal-green">> booting_archive...</p>
+          <p>signal detected at 03:17</p>
+          <p class="flicker">DO NOT TRUST THE FIRST ANSWER</p>
+          <p class="terminal-green">> waiting for input<span class="cursor">_</span></p>
+        </div>
+        <div class="monitor-base"></div>
+      </div>
+      <span class="corner corner-tl"></span><span class="corner corner-br"></span>
+    </section>
+
+    <section class="game-layout" id="gameArea">
+      <aside class="panel room-nav">
+        <div class="section-heading"><span class="status-square"></span><h2>ROOM DIRECTORY</h2></div>
+        <p class="muted small">Five rooms. No shortcuts.</p>
+        <div id="roomList" class="room-list"></div>
+        <div class="progress-block">
+          <div class="progress-label"><span>ARCHIVE RECOVERY</span><strong id="progressText">0 / 5</strong></div>
+          <div class="progress-track" role="progressbar" aria-label="Archive recovery progress" aria-valuemin="0" aria-valuemax="5" aria-valuenow="0" id="progressBar"><div id="progressFill" class="progress-fill"></div></div>
+        </div>
+        <button id="resetBtn" class="btn btn-quiet btn-full">RESET INVESTIGATION</button>
+      </aside>
+
+      <section class="panel room-panel" aria-live="polite">
+        <div class="room-topline"><span id="roomNumber">ROOM 01 / 05</span><span id="roomStatus" class="status-tag">SIGNAL FOUND</span></div>
+        <h2 id="roomTitle">The Entrance</h2>
+        <p id="roomSubtitle" class="room-subtitle">A message in the static</p>
+        <div class="story-card">
+          <span class="card-label">RECOVERED AUDIO TRANSCRIPT</span>
+          <p id="roomStory"></p>
+        </div>
+        <div class="clue-card">
+          <span class="card-label">EVIDENCE // READ CAREFULLY</span>
+          <p id="roomClue"></p>
+        </div>
+        <form id="answerForm" class="answer-form">
+          <label for="answerInput">ENTER YOUR ANSWER</label>
+          <div class="answer-row">
+            <input id="answerInput" name="answer" autocomplete="off" spellcheck="false" placeholder="Type the code or phrase..." required>
+            <button class="btn btn-primary" type="submit">SUBMIT ↗</button>
+          </div>
+        </form>
+        <div class="room-actions">
+          <button id="hintBtn" class="btn btn-quiet">REQUEST A HINT <span>−1 mystery point</span></button>
+          <span id="hintCount" class="muted small">HINTS USED: 0</span>
+        </div>
+        <div id="feedback" class="feedback" role="status"></div>
+        <div id="hintBox" class="hint-box" hidden></div>
+        <div id="ending" class="ending" hidden>
+          <div class="ending-symbol">✳</div>
+          <p class="eyebrow">SIGNAL RESTORED</p>
+          <h3>YOU FOUND THE WAY OUT.</h3>
+          <p>The archive was never a place. It was a warning: look closer, question the obvious, and keep the evidence connected.</p>
+          <p class="muted small">CASE FILE CLOSED // THANK YOU FOR PLAYING</p>
+        </div>
+      </section>
+    </section>
+
+    <section class="footer-note">
+      <span>FICTIONAL INTERACTIVE MYSTERY</span><span>ALL CLUES ARE PART OF THE GAME</span><span id="playerLabel">PLAYER: CONNECTING...</span>
+    </section>
+  </main>
+  <script src="{{ url_for('static', filename='js/game.js') }}" defer></script>
+</body>
+</html>

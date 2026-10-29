@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080d0d">
+  <meta name="description" content="Privacy, terms, storage and third-party information for The Internet's Secret Room.">
+  <title>{{ page_title }} — The Internet's Secret Room</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <div class="scanlines" aria-hidden="true"></div>
+  <header class="topbar"><a class="brand" href="{{ url_for('index') }}"><span class="brand-mark" aria-hidden="true">▣</span> SIGNAL_03:17</a><div class="top-meta">INFORMATION ARCHIVE</div></header>
+  <main class="legal-page"><article class="panel">
+    <p class="eyebrow">THE INTERNET'S SECRET ROOM // SITE INFORMATION</p>
+    <h1>{{ page_title }}</h1>
+    <p class="muted">Last reviewed: 18 October 2026. This is a student/demo project policy template. The site owner must verify it against the deployed application's actual practices before public launch.</p>
+    {% if page_key == 'privacy' %}
+      <p>This page explains the limited data used by this local browser game.</p>
+      <h2>Information the game uses</h2>
+      <ul><li><strong>Player identifier:</strong> the browser creates a random player ID and stores it in local storage so the game can associate your progress with the same browser.</li><li><strong>Game progress:</strong> completed rooms, hints used, and a last-updated timestamp are stored in a local SQLite database on the server running this app.</li><li><strong>Answers:</strong> the answer you submit is sent to the game server for checking. The current version does not need your real name, email address, or account password.</li><li><strong>Server/hosting data:</strong> if hosted publicly, the hosting provider may process connection metadata such as IP address and request logs under its own terms. Confirm the provider's actual logging and retention settings before launch.</li></ul>
+      <h2>Purpose and retention</h2><p>Data is used to operate the game and remember progress. Progress remains in the SQLite database until the operator deletes it or the database is removed. Use the in-game reset button to clear the current player's progress; this does not remove the browser's player ID or hosting logs.</p>
+      <h2>Sharing and security</h2><p>The current project has no analytics integration or user-account system configured. Do not add analytics, advertising, or external services without updating this notice. No internet service can guarantee absolute security; do not submit sensitive or confidential information to this game.</p>
+      <h2>Children and contact</h2><p>This is a fictional entertainment/student project, not a service intended to collect children's personal details. Before public deployment, the operator should add a monitored contact address and a process for privacy requests. No contact address has been configured in this demo, so none is invented here.</p>
+    {% elif page_key == 'terms' %}
+      <p>By using the game, you agree to use it lawfully and respectfully. If you do not agree, stop using the site.</p>
+      <h2>Game and acceptable use</h2><ul><li>The story, rooms, clues and characters are fictional and provided for entertainment.</li><li>Do not attempt to disrupt the service, access another player's progress, or submit unlawful content.</li><li>Do not treat story text as real-world security instructions or as professional advice.</li></ul>
+      <h2>Ownership and third-party rights</h2><p>Only content created by the project author or used with permission/licence should be included. Third-party names and marks remain with their respective owners. If you believe content infringes your rights, the operator should provide a valid contact method and review the report promptly.</p>
+      <h2>Availability and changes</h2><p>This educational demo is provided as-is and may change, reset progress, or become unavailable. To the extent permitted by applicable law, the operator does not promise uninterrupted service. Nothing in these terms excludes rights or remedies that cannot legally be excluded.</p>
+      <h2>Applicable law</h2><p>Indian law may apply where the operator or relevant activity is in India, along with other mandatory laws that may apply based on users and hosting. The correct legal position depends on deployment and business circumstances; obtain qualified legal advice before commercial use.</p>
+    {% elif page_key == 'cookies' %}
+      <p>The current version does not intentionally set browser cookies for advertising or analytics. It uses browser <em>local storage</em>, which is different from a cookie.</p>
+      <h2>Browser storage</h2><p>The key <code>secretRoomPlayerId</code> stores a random identifier in your browser so progress can be looked up on later visits from that browser. Clearing the site's local storage or browser data removes that identifier and may make previous progress inaccessible from this browser.</p>
+      <h2>Server storage</h2><p>The app stores room completion, hints used, and an update timestamp in SQLite. The reset button clears game progress for the current player but does not delete the local-storage identifier.</p>
+      <h2>Third-party tools</h2><p>The bundled version uses system fonts and does not embed third-party videos, social widgets, analytics, or ad scripts. Your hosting provider may still use essential infrastructure logs. Re-check this page if you add external scripts, fonts, embeds, or analytics.</p>
+      <h2>Your choices</h2><p>You can clear site data through your browser settings. If the site later adds non-essential cookies or tracking, update this policy and implement any consent mechanism required by applicable law before enabling them.</p>
+    {% else %}
+      <p>The bundled demo currently includes no third-party embedded videos, social media widgets, analytics SDKs, advertising scripts, or remotely loaded fonts. The visual design uses system monospace fonts to reduce external requests.</p>
+      <h2>Hosting and external services</h2><p>When deployed publicly, the hosting provider may process connection data. Review that provider's privacy and security terms and disclose the provider and any other processors that are actually used.</p>
+      <h2>Before adding an embed or external asset</h2><ul><li>Check its source, licence, privacy terms, and whether it sets cookies or sends visitor data.</li><li>Prefer self-hosted, licensed assets where practical.</li><li>Do not load non-essential third-party content until any legally required notice or consent has been handled.</li><li>Update this page whenever the site's integrations change.</li></ul>
+    {% endif %}
+    <p class="notice"><strong>Before public launch:</strong> replace this note with the real operator/organisation name, a monitored privacy/legal contact, actual hosting-provider details, retention periods, and any required grievance/contact information. These sample pages are not a legal certification.</p>
+    <a class="back-link" href="{{ url_for('index') }}">← Return to the game</a>
+  </article></main>
+</body>
+</html>
